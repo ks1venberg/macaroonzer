@@ -48,3 +48,10 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+
+public/images/classic.png
+public/images/pineapple.png
+public/images/raspberry.png
+public/images/set1.png
+public/images/set2.png
+public/images/set3.png
