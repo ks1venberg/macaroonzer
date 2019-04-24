@@ -1,0 +1,21 @@
+development:
+  encoding: unicode
+  pool: 2
+  prepared_statements: false
+  adapter: postgresql
+  host:
+  url: <%= ENV['DATABASE_URL'] %>
+  database: macashop_dev
+  username: venberg
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+production:
+  encoding: unicode
+  pool: 2
+  prepared_statements: false
+  adapter: postgresql
+  host:
+  url: <%= ENV['DATABASE_URL'] %>
+  database: macashop_prod
+  username: venberg
+  password: <%= ENV['DATABASE_PASSWORD'] %>
