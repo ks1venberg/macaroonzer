@@ -1,0 +1,58 @@
+<h2>Check items in your cart, please</h2>
+
+<div id="cart">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% total_price = 0 %>
+  <% total_quantity = 0 %>
+  <% @items.each do |item|%>
+      <tr>
+        <td><%= item[0].title %></td>
+        <td><%= item[0].price %></td>
+        <td><%= item[1] %></td>
+      </tr>
+      <% total_price += item[0].price*item[1].to_i %>
+      <% total_quantity += item[1].to_i %>
+  <% end %>
+
+      <tr>
+      <td></td>    
+      <td>Total:<%= total_price %> rub</td>
+      <td><%= total_quantity %></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <form action="/confirm_order" method="POST" role="form">
+
+    <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
+
+      <div class="form-group">
+      <label>Name:</label>
+      <input name="order[name]" type="text" class="form-control" placeholder="Your name">
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input name="order[phone]" type="text" class="form-control" placeholder="Telephone">
+    </div>
+
+     <div class="form-group">
+      <label>Address</label>
+      <textarea name="order[address]" type="text" class="form-control" placeholder="Address"></textarea>
+    </div>
+
+      <button type="submit" class="btn btn-success btn-lg">Confirm order</button>
+
+  </form>
+
+</div>
