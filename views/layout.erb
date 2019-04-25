@@ -8,10 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
     <title>Macaroonzer</title>
 
   </head>
+
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-sm rounded sticky-top navbar-light" style="background-color: #FFDEAD;">
@@ -35,10 +35,17 @@
           <div class="navbar-nav font-weight-bold">
               <form action='/cart' method="post">
                 <input id="orders_input" name="orders_input" type="hidden" />
-                <input id="orders_input" type="submit" class="btn btn-lg btn-warning" value = "CART(...)"  /></button>
+                <input id="orders_button" type="submit" class="btn btn-lg btn-warning" value = "CART(...)"  />
               </form>
           </div>
       </nav>
+
+      <div>
+        <%if @error && @error.length > 0 then %>
+            <div class="alert alert-danger"><%=@error%></div>
+        <% end %>
+        <%= yield %>
+      </div>
 
   </div>
 
