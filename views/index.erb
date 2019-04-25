@@ -1,1 +1,28 @@
-<h2>This is macaroons e-shop!</h2>
+<h1><i>This is our actual offers:</i></h1>
+<br/>
+<br/>
+
+<div class="container">
+	<div class="row">
+		<% @products.each do |p| %>
+			<div class="col-sm-4">
+	      <div><b><%= p.title%></b></div>
+	      <div><img src="<%= p.pathtoimage %>"></div>
+	      <div>Description: <i><%= p.description %></i></div>
+
+	      <div class="row align-items-center justify-content-center">
+	      	<div class="col-sm-4">
+	      		<div><b>price: <%= p.price%> rub.</b></div>
+	      	</div>
+	      	<div class="col-sm-4">
+		    		<div><button class="btn btn-sm btn-success">Add to cart</button></div>
+		    	</div>
+		    </div>
+
+		    <hr/>
+					<br/>
+					<br/>
+	    </div>
+	  <% end %>
+	</div>
+</div>
