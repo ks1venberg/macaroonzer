@@ -34,7 +34,6 @@ get '/admin' do
 	erb :admin
 end
 
-
 post '/cart' do
 	
 	@orders_input = params[:orders_input]
@@ -54,6 +53,14 @@ end
 post '/confirm_order' do
 	@ord = Order.create params[:order]
 	erb :confirm_order
+end
+
+get '/contact' do
+	erb :contact
+end
+
+post '/contact' do
+	@messages = Message.create params[:message]
 end
 
 

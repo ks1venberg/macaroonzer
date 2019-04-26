@@ -68,3 +68,10 @@ function cancel_order()
   
   return false;
 }
+
+function alert_message()
+{
+  alert('Thank you for message!');
+  window.location.href="/";
+  return true;
+}
