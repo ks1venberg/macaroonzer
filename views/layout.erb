@@ -7,12 +7,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Load script-file stored in public folder -->
+    <script src="/app_functions.js"></script>
 
     <title>Macaroonzer</title>
 
   </head>
 
-  <body>
+  <body style = "background-color:#FFF8DC">
     <div class="container">
       <nav class="navbar navbar-expand-sm rounded sticky-top navbar-light" style="background-color: #FFDEAD;">
         <a class="navbar-brand font-weight-bold" href="/">Main page</a>
@@ -39,6 +42,8 @@
               </form>
           </div>
       </nav>
+      
+      <br />
 
       <div>
         <%if @error && @error.length > 0 then %>
@@ -48,6 +53,14 @@
       </div>
 
   </div>
+
+  <script type="text/javascript">
+    $(function() 
+    {
+    update_cart();
+    update_orders_button();
+    });
+  </script>
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
