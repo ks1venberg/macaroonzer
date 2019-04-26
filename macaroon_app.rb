@@ -12,9 +12,24 @@ class Product < ActiveRecord::Base
 end
 
 class Order < ActiveRecord::Base
+	validates :name, presence: { message: "must be given please" }, length: {minimum: 3}
+	validates :phone, presence: true, length: { in: 7..13 }
+	validates :address, presence: true, length: {minimum: 7}
+	
+	private
+	 def order_params
+     params.require(:order).permit(:name, :phone, :address)
+  	end
 end
 
 class Message < ActiveRecord::Base
+	 validates :email, presence: true, length: {minimum: 6}
+	 validates :msgbody, presence: true, length: {minimum: 3}
+	 
+	 private
+	 	def message_params
+      params.require(:message).permit(:email, :msgbody)
+  	end
 end
 
 before do
@@ -51,8 +66,14 @@ post '/cart' do
 end
 
 post '/confirm_order' do
-	@ord = Order.create params[:order]
-	erb :confirm_order
+		@order = Order.new params[:order]
+	  if @order.valid?
+	    @order.save
+	    @order.errors.clear
+	    erb :confirm_order
+	  else
+	  	return erb :cart
+	  end
 end
 
 get '/contact' do
@@ -60,7 +81,14 @@ get '/contact' do
 end
 
 post '/contact' do
-	@messages = Message.create params[:message]
+	@message = Message.new params[:message]
+	  if @message.valid?
+	    @message.save
+	    @message.errors.clear
+	    redirect to ('/')
+	  else
+	    erb :contact
+	  end
 end
 
 

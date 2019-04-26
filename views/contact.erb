@@ -4,7 +4,15 @@
   <hr/>
   <br/>
 
-     <form action="/contact" method="POST" role="form">
+    <form action="/contact" method="POST" role="form">
+
+        <% if @message && @message.errors.any? %>  
+          <ul>
+            <% @message.errors.full_messages.uniq!.each do |msg| %>
+              <li  style='color:#FF0000'><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
 
       <div class="form-group">
         <!-- <label>Message text</label> -->
@@ -18,6 +26,8 @@
         <!-- </div> -->
         <button type="submit" class="btn btn-primary btn-lg" style="width: 100px" onclick="alert_message()">Send</button>
       </div>
+
+
 
     </form>
 </div>
