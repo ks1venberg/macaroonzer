@@ -1,0 +1,12 @@
+<h2>Example of admin page with full list of orders:</h2>
+
+<% @orders.each do |z| %>
+  <p>
+      <%= z['orders_input'] %>
+      <br />
+      Name - <%= z['name'] %>; Phone; <%= z['phone'] %>; Address: <%= z['address'] %>;
+      <br />
+      Added at: <%= z['created_at'] %>
+    <hr />
+  </p>
+<%  end %>

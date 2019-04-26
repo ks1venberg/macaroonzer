@@ -65,5 +65,6 @@ function cancel_order()
   
     alert('Your order has cancelled');
   window.location.href="/";
+  
   return false;
 }
