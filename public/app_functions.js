@@ -55,3 +55,15 @@ function cart_items()
   }
   return cnt;
 }
+
+function cancel_order()
+{
+  window.localStorage.clear()
+  
+  update_cart();
+  update_orders_button();
+  
+    alert('Your order has cancelled');
+  window.location.href="/";
+  return false;
+}
