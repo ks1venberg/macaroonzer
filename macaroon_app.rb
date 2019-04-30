@@ -36,7 +36,13 @@ before do
 	@products = Product.all
 end
 
+
 get '/' do
+	erb :cover, :layout => false
+end
+
+
+get '/main' do
 	erb :index			
 end
 
@@ -85,7 +91,7 @@ post '/contact' do
 	  if @message.valid?
 	    @message.save
 	    @message.errors.clear
-	    redirect to ('/')
+	    redirect to ('/main')
 	  else
 	    erb :contact
 	  end

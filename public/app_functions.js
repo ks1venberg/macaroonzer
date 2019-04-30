@@ -64,7 +64,7 @@ function cancel_order()
   update_orders_button();
   
     alert('Your order has cancelled');
-  window.location.href="/";
+  window.location.href="/main";
   
   return false;
 }
@@ -72,6 +72,6 @@ function cancel_order()
 function alert_message()
 {
   alert('Thank you for message!');
-  window.location.href="/";
+  window.location.href="/main";
   return true;
 }
