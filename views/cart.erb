@@ -8,7 +8,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Name</th>
+        <th scope="col">Product</th>
         <th scope="col">Price</th>
         <th scope="col">Quantity</th>
       </tr>
@@ -39,10 +39,11 @@
 
   <form action="/confirm_order" method="POST" role="form">
 
-      <% if @order && @order.errors.any? %>  
+      <% if @order && @order.errors.any? %>
+        <p><b>Above fields aren't correct:</b></p> 
         <ul>
-          <% @order.errors.full_messages.uniq!.each do |msg| %>
-            <li  style='color:#FF0000'><%= msg %></li>
+          <% @order.errors.full_messages.uniq.each do |msg| %>
+            <li style='color:#FF0000'><%= msg %></li>
           <% end %>
         </ul>
       <% end %>
@@ -50,18 +51,18 @@
     <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
 
       <div class="form-group">
-      <label>Name:</label>
-      <input name="order[name]" type="text" class="form-control" placeholder="Your name">
+      <label><b>Name</b></label>
+      <input name="order[name]" type="text" class="form-control" placeholder="your name">
     </div>
 
     <div class="form-group">
-      <label>Phone</label>
-      <input name="order[phone]" type="text" class="form-control" placeholder="Telephone">
+      <label><b>Phone</b></label>
+      <input name="order[phone]" type="text" class="form-control" placeholder="your phone number">
     </div>
 
      <div class="form-group">
-      <label>Address</label>
-      <textarea name="order[address]" type="text" class="form-control" placeholder="Address"></textarea>
+      <label><b>Address</b></label>
+      <textarea name="order[address]" type="text" class="form-control" placeholder="city, street, flat number"></textarea>
     </div>
 
       <button type="submit" class="btn btn-success btn-lg" onclick="redirect to ('/confirm_order')">Confirm order</button>

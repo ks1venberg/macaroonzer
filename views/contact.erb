@@ -7,9 +7,10 @@
 
     <form action="/contact" method="POST" role="form">
 
-        <% if @message && @message.errors.any? %>  
+        <% if @message && @message.errors.any? %>
+        <p><b>Above fields aren't correct:</b></p> 
           <ul>
-            <% @message.errors.full_messages.uniq!.each do |msg| %>
+            <% @message.errors.full_messages.uniq.each do |msg| %>
               <li  style='color:#FF0000'><%= msg %></li>
             <% end %>
           </ul>
@@ -17,13 +18,13 @@
 
       <div class="form-group">
         <!-- <label>Message text</label> -->
-        <textarea name="message[msgbody]" type="text" class="form-control" placeholder="Message text" style="width: 500px" rows="4"></textarea>
+        <textarea name="message[msgbody]" type="text" class="form-control" placeholder="message text" style="width: 500px" rows="4"></textarea>
       </div>
 
       <div class="form-inline">
         <!-- <div class="form-group" > -->
           <!-- <label>Email: </label> -->
-          <input name="message[email]" type="text" class="form-control  mr-1" placeholder="Email" style="width: 400px">
+          <input name="message[email]" type="text" class="form-control  mr-1" placeholder="your email" style="width: 400px">
         <!-- </div> -->
         <button type="submit" class="btn btn-primary btn-lg" style="width: 100px" onclick="alert_message()">Send</button>
       </div>

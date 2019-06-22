@@ -24,7 +24,7 @@ end
 
 class Message < ActiveRecord::Base
 	 validates :email, presence: true, length: {minimum: 6}
-	 validates :msgbody, presence: true, length: {minimum: 3}
+	 validates :msgbody, presence: { message: "- please type the text" }, length: {minimum: 3, message: "- minimum text length is 3 characters"}
 	 
 	 private
 	 	def message_params
