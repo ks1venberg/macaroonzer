@@ -1,7 +1,16 @@
+$(function() {
+	$('[data-toggle="popover"]').popover({
+	container: "body",
+	trigger: "hover",
+	placement: "auto",
+	boundary: "window"
+	})
+})
+
 function add_to_cart(id)
 {
   var key = 'product_' + id;
-  
+
   var x = window.localStorage.getItem(key);
     x = x*1 + 1;
     window.localStorage.setItem(key, x);
@@ -59,13 +68,13 @@ function cart_items()
 function cancel_order()
 {
   window.localStorage.clear()
-  
+
   update_cart();
   update_orders_button();
-  
+
     alert('Your order has cancelled');
   window.location.href="/main";
-  
+
   return false;
 }
 

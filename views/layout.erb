@@ -20,35 +20,39 @@
     <div class="container">
       <nav class="navbar navbar-expand-sm rounded sticky-top navbar-light" style="background-color: #d9a375; font-size: 16px;">
         <a class="navbar-brand" style="font-size: 16px; font-weight: bold" href="/main">Main page</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="navbar-nav font-weight-bold ml-2">
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/contact">Contact form</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/info">Information</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="/admin">Admin page</a>
-          </li>
-        </div>
-        </div>
-          <div class="navbar-nav font-weight-bold">
-              <form action='/cart' method="post">
-                <input id="orders_input" name="orders_input" type="hidden" />
-                <input id="orders_button" type="submit" class="btn btn-lg btn-warning" value = "CART(...)"  />
-              </form>
-          </div>
-      </nav>
+		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
 
-      <br />
+        <div class="collapse navbar-collapse" id="navbarNav">
+		      <div class="navbar-nav font-weight-bold ml-2">
+		        <li class="nav-item">
+		          <a class="nav-link text-dark" href="/contact">Contact form</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link text-dark" href="/info">Information</a>
+		        </li>
+		        <li class="nav-item">
+							<span data-toggle="popover" data-html="true" title="Admin page with db style" data-content="<i>you can get access by typing page address: /admin</i>">
+		          	<a class="nav-link disabled text-dark" href="/admin">For admin</a>
+							</span>
+		        </li>
+		      </div>
+        </div>
+
+        <div class="navbar-nav font-weight-bold">
+          <form action='/cart' method="post">
+            <input id="orders_input" name="orders_input" type="hidden" />
+            <input id="orders_button" type="submit" class="btn btn-lg btn-warning" value = "CART(...)"  />
+          </form>
+        </div>
+
+      </nav>
+      	<br />
 
       <div>
         <%if @error && @error.length > 0 then %>
-            <div class="alert alert-danger"><%=@error%></div>
+          <div class="alert alert-danger"><%=@error%></div>
         <% end %>
         <%= yield %>
       </div>
