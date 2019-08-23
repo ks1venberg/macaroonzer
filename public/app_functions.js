@@ -7,6 +7,10 @@ $(function() {
 	})
 })
 
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
 function add_to_cart(id)
 {
   var key = 'product_' + id;
