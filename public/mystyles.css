@@ -1,0 +1,30 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+	background-color: #FFFAFA;
+	padding-bottom: 60px;
+}
+
+container {
+	height: 100%;
+}
+
+footer {
+	position: absolute;
+  bottom: 0;
+	left: 0;
+	width: inherit;
+	min-height: 60px;
+	font-size: 8px;
+ 	background-color: #ffdbc9;
+ 	border-radius: 5px;
+}
+
+footer .row {
+	margin-left: 10px;
+	margin-right: 10px;
+	align-items: center;
+}
