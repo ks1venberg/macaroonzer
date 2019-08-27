@@ -8,16 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- Load jQuery, script-files stored in public folder -->
+    <!-- Load jQuery, styles, script-files stored in public folder -->
 		<script src="jquery-3.4.1.min.js"></script>
     <script src="app_functions.js"></script>
 		<script async defer src="https://buttons.github.io/buttons.js"></script>
+		<link rel="stylesheet" href="mystyles.css">
 
     <title>Macaroonzer</title>
 
   </head>
 
-  <body style = "background-color:#FFFAFA">
+  <body>
     <div class="container">
       <nav class="navbar navbar-expand-sm rounded sticky-top navbar-light" style="background-color: #d9a375; font-size: 16px;">
         <a class="navbar-brand" style="font-size: 16px; font-weight: bold" href="/main">Main page</a>
@@ -49,7 +50,7 @@
         </div>
 
       </nav>
-      	<br />
+      	<br>
 
       <div>
         <%if @error && @error.length > 0 then %>
@@ -60,18 +61,18 @@
 
   	</div>
 
-		<footer>
-			<div class="container"
-			<div class="row mx-2"
-				<div class="col" style="text-align:left">
-					<a class="github-button" href="https://github.com/ks1venberg/macaroonzer" data-size="large" aria-label="Project page on GitHub">Project source</a>
+		<div class="container">
+			<footer>
+				<div class="row"
+					<div class="col" style="text-align:left">
+						<a class="github-button" href="https://github.com/ks1venberg/macaroonzer" data-size="large" aria-label="Project">Project on GitHub</a>
+					<div class="col" style="text-align:right">
+						<p><strong>Macaroonzer - bakery & shop</strong><br>made by ks1venberg (2019)</p>
+					</div>
+					</div>
 				</div>
-				<div class="col" style="text-align:right">
-					<p><strong>Macaroons bakery & shop (2019)</strong><br> Made by ks1venberg</p>
-				</div>
-			</div>
-			</div>
-		</footer>
+			</footer>
+		</div>
 
   <script type="text/javascript">
     $(function()
