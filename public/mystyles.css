@@ -5,7 +5,7 @@ html {
 
 body {
 	background-color: #FFFAFA;
-	padding-bottom: 60px;
+	padding-bottom: 80px;
 }
 
 container {
@@ -18,13 +18,39 @@ footer {
 	left: 0;
 	width: inherit;
 	min-height: 60px;
-	font-size: 8px;
- 	background-color: #ffdbc9;
+ 	background-color: #d9a375;
  	border-radius: 5px;
 }
 
+footer .row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer .row.display-flex > [class*='col'] {
+  display: flex;
+  flex-direction: column;
+
+}
+
 footer .row {
-	margin-left: 10px;
-	margin-right: 10px;
-	align-items: center;
+	margin-bottom: 0;
+	height: 100%;
+}
+
+footer .col {
+	margin-top: 25px;
+	margin-bottom: 0;
+	min-height: 100%;
+	display: block;
+	position: relative;
+	text-align: center;
+}
+
+footer p, a {
+  display: inline-block;
+	position: relative;
+  text-align: left;
+	font-size: 12pt;
+	color: #696969;
 }
