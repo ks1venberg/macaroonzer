@@ -12,6 +12,13 @@ container {
 	height: 100%;
 }
 
+.body_layer {
+	background: url('/images/background_gifts.jpg');
+  background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+}
+
 .main_footer {
 	position: absolute;
   bottom: 0;
