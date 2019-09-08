@@ -48,6 +48,17 @@ container {
 	padding: 10px;
 }
 
+.bs-tooltip-auto[x-placement^=top] .arrow::before,
+.tooltip-inner{
+	background-color: #ffc107;
+	color: #343a40;
+	font-weight: bold;
+	}
+	
+.bs-tooltip-top .arrow::before {
+	border-top-color: #ffc107;
+}
+
 .main_footer {
 	position: absolute;
   bottom: 0;

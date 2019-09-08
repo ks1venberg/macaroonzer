@@ -18,15 +18,15 @@
 				<% @products.each do |p| %>
 
 					<div class="col-4 pb-3 pb-md-4 mx-1 mb-5 shadow bg-white rounded" style="min-width: 160px; max-width: 32%">
-						<div class="row justify-content-left mx-1 pt-1" style="min-height: 50px">
+						<div class="row justify-content-left mx-1 pt-1" style="min-height: 50px; max-height: 60px">
 							<b><%= p.title%></b>
 						</div>
 
 			      <div class="row justify-content-center">
-							<img class="img-fluid" src="<%= p.pathtoimage %>">
+							<img class="img-fluid px-1" src="<%= p.pathtoimage %>">
 						</div>
 
-						<div class="row mx-1">
+						<div class="row mx-1 mt-1 mt-sm-0">
 							<div class="d-flex flex-column mt-sm-2 mt-md-1 mb-n2" style="min-height: 64px; max-height: 67px">
 								<div class="overflow-auto">Taste:<i> <%=p.description%></i>	</div>
 							</div>
@@ -38,7 +38,7 @@
 			      	<div class="col col-md-9 col-lg-7">
 			      		<div style="mt-lg-5">
 									<%if p.is_bestoffer then %>
-										<a href="#" data-toggle="tooltip" data-placement="top" data-html="true"
+										<a href="#" data-toggle="tooltip" data-placement="top" data-html="true" onclick="add_to_cart(<%= p.id%>)"
 			   						title="It's a special <br/> offer!"><b>price: <%= p.price.to_i%> rub</b></a>
 									<% else %>
 										<b>price: <%= p.price.to_i %> rub</b>
@@ -57,22 +57,7 @@
 			</div>
 			</div>
 
-			<style>
-			  .bs-tooltip-auto[x-placement^=top] .arrow::before,
-				.tooltip-inner{
-					background-color: #ffc107;
-					color: #343a40;
-					font-weight: bold;
-					}
-			  .bs-tooltip-top .arrow::before {
-			    border-top-color: #ffc107;
-			  }
-			</style>
-
 		</main>
-		
-		<footer>
-		</footer>
 
 	</body>
 </html>
