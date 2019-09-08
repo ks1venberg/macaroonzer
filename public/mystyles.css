@@ -19,30 +19,33 @@ container {
 	background-size: cover;
 }
 
-.bgimg-1 {
-	position: relative;
+.img_cover {
+	position: absolute;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-image: url('/images/back_image.jpg');
 }
 
-.caption {
+.btn_caption {
+	width: 10%;
+	height: 15%;
 	position: relative;
-	left: 0%;
-	top: 50%;
 	opacity: 0.8;
-	text-align: center;
-	color: #FFFAFA;
+	left: 65%;
+	top: 50%;
+	margin-left: -5%;
+	margin-top: -5%;
 }
 
-.caption span.border {
-	position: relative;
-	background-color: #8e4f3b;
+.btn_caption > .btn {
 	font-weight: bold;
-	padding: 15px;
+	border: 3px solid;
 	border-radius: 8px;
-	margin-left: 35%;
+	color: #FFFAFA;
+	background-color: #8e4f3b;
+	position: sticky;
+	padding: 10px;
 }
 
 .main_footer {
