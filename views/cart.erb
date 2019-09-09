@@ -1,73 +1,90 @@
-<h1><i>Check items in cart before confirm, please:</i></h1>
-<br/>
-<br/>
+<!DOCTYPE html>
+<html>
+	<body>
+		<header>
+			<h1><i>Check your order, please:</i></h1>
+			<br>
+		</header>
+
+		<main>
+
+			<div id="cart">
+
+				<section> <!-- If some items added to cart	 -->
+					<% if @items %>
+					  <table class="table table-striped">
+					    <thead>
+					      <tr>
+					        <th scope="col">Product</th>
+					        <th scope="col">Price</th>
+					        <th scope="col">Quantity</th>
+					      </tr>
+					    </thead>
+
+					    <tbody>
+					    	<% total_price = 0 %>
+					    	<% total_quantity = 0 %>
+					    	<% @items.each do |item|%>
+						      <tr>
+						        <td><%= item[0].title %></td>
+						        <td><%= item[0].price.to_i %></td>
+						        <td><%= item[1] %></td>
+						      </tr>
+						      <% total_price += item[0].price*item[1].to_i %>
+						      <% total_quantity += item[1].to_i %>
+						    <% end %>
+
+						      <tr>
+						      <td></td>
+						      <td>Total: <b><%= total_price.to_i %></b> rub</td>
+						      <td><%= total_quantity %></td>
+						      </tr>
+					    </tbody>
+
+					  </table>
+					<% end %>
+				</section>
+
+				<section> <!-- Form for saving orders	 -->
+				  <form action="/confirm_order" method="POST" role="form">
+
+				      <% if @order && @order.errors.any? %>
+				        <p><b>Above fields aren't correct:</b></p>
+				        <ul>
+				          <% @order.errors.full_messages.uniq.each do |msg| %>
+				            <li style='color:#FF0000'><%= msg %></li>
+				          <% end %>
+				        </ul>
+				      <% end %>
+
+				    <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
+
+				    <div class="form-group">
+				      <label><b>Name</b></label>
+				      <input name="order[name]" type="text" class="form-control" placeholder="your name">
+				    </div>
+
+				    <div class="form-group">
+				      <label><b>Phone</b></label>
+				      <input name="order[phone]" type="text" class="form-control" placeholder="your phone number">
+				    </div>
+
+				    <div class="form-group">
+				      <label><b>Address</b></label>
+				      <textarea name="order[address]" type="text" class="form-control" placeholder="city, street, flat number"></textarea>
+				    </div>
+
+						<div class="form-group">
+				      <button type="submit" class="btn btn-success btn-lg"  style="padding-right: 5px" onclick="redirect to ('/confirm_order')">Confirm order</button>
+				      <button class="btn btn-danger btn-lg" onclick="return cancel_order()">cancel order</button>
+						</div>
+
+				  </form>
+				</section>
+
+			</div>
 
 
-<div id="cart">
-<% if @items %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Product</th>
-        <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
-      </tr>
-    </thead>
-
-    <tbody>
-    <% total_price = 0 %>
-    <% total_quantity = 0 %>
-    <% @items.each do |item|%>
-      <tr>
-        <td><%= item[0].title %></td>
-        <td><%= item[0].price %></td>
-        <td><%= item[1] %></td>
-      </tr>
-      <% total_price += item[0].price*item[1].to_i %>
-      <% total_quantity += item[1].to_i %>
-    <% end %>
-
-      <tr>
-      <td></td>    
-      <td>Total:<%= total_price %> rub</td>
-      <td><%= total_quantity %></td>
-      </tr>
-
-    </tbody>
-  </table>
-<% end %>
-
-  <form action="/confirm_order" method="POST" role="form">
-
-      <% if @order && @order.errors.any? %>
-        <p><b>Above fields aren't correct:</b></p> 
-        <ul>
-          <% @order.errors.full_messages.uniq.each do |msg| %>
-            <li style='color:#FF0000'><%= msg %></li>
-          <% end %>
-        </ul>
-      <% end %>
-
-    <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
-
-      <div class="form-group">
-      <label><b>Name</b></label>
-      <input name="order[name]" type="text" class="form-control" placeholder="your name">
-    </div>
-
-    <div class="form-group">
-      <label><b>Phone</b></label>
-      <input name="order[phone]" type="text" class="form-control" placeholder="your phone number">
-    </div>
-
-     <div class="form-group">
-      <label><b>Address</b></label>
-      <textarea name="order[address]" type="text" class="form-control" placeholder="city, street, flat number"></textarea>
-    </div>
-
-      <button type="submit" class="btn btn-success btn-lg" onclick="redirect to ('/confirm_order')">Confirm order</button>
-      <button class="btn btn-danger btn-lg" onclick="return cancel_order()")>Cancel order</button>
-
-  </form>
-
-</div>
+		</main>
+	</body>
+</html>
