@@ -38,7 +38,7 @@
 			      	<div class="col col-md-9 col-lg-7">
 			      		<div style="mt-lg-5">
 									<%if p.is_bestoffer then %>
-										<a href="#" data-toggle="tooltip" data-placement="top" data-html="true" onclick="add_to_cart(<%= p.id%>)"
+										<a href="#" data-toggle="tooltip" data-placement="top" data-html="true" onclick="add_to_cart(<%= p.id%>,'<%= p.title %>')"
 			   						title="It's a special <br/> offer!"><b>price: <%= p.price.to_i%> rub</b></a>
 									<% else %>
 										<b>price: <%= p.price.to_i %> rub</b>
@@ -46,7 +46,7 @@
 			      		</div>
 							</div>
 			      	<div class="ml-3 mx-lg-n1">
-				    		<div><button class="btn btn-sm btn-success" onclick="add_to_cart(<%= p.id%>)">Add to cart</button></div>
+				    		<div><button class="btn btn-sm btn-success" onclick="add_to_cart(<%= p.id%>,'<%= p.title %>')">Add to cart</button></div>
 				    	</div>
 				    </div>
 
