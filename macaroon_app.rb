@@ -15,7 +15,7 @@ class Order < ActiveRecord::Base
 	validates :name, presence: { message: "must be given please" }, length: {minimum: 3}
 	validates :phone, presence: true, length: { in: 7..13 }
 	validates :address, presence: true, length: {minimum: 7}
-	
+
 	private
 	 def order_params
      params.require(:order).permit(:name, :phone, :address)
@@ -25,7 +25,7 @@ end
 class Message < ActiveRecord::Base
 	 validates :email, presence: true, length: {minimum: 6}
 	 validates :msgbody, presence: { message: "- please type the text" }, length: {minimum: 3, message: "- minimum text length is 3 characters"}
-	 
+
 	 private
 	 	def message_params
       params.require(:message).permit(:email, :msgbody)
@@ -43,7 +43,7 @@ end
 
 
 get '/main' do
-	erb :index			
+	erb :index
 end
 
 get '/info' do
@@ -56,18 +56,15 @@ get '/admin' do
 end
 
 post '/cart' do
-	
-	@orders_input = params[:orders_input]
-	@items = parse_orders_input @orders_input
 
-	if @items.length ==0
-		return erb :empty_cart
-	end
+	@items = parse_orders_input(params[:all_orders])
+
+	return erb :empty_cart if @items.length ==0
 
 	@items.each do |item|
-		item[0] = Product.find(item[0])
+		item[0] = @products.find(item[0])
 	end
-	
+
 	erb :cart
 end
 
@@ -98,18 +95,11 @@ post '/contact' do
 end
 
 
-def parse_orders_input orders_input
-	s1 = orders_input.split(/,/)
-	arr = []
-	s1.each do |x|
-		s2 = x.split(/=/)
-		s3 = s2[0].split(/_/)
+def parse_orders_input all_orders
+# example of params[:all_orders]: 'item-id:2,title:Raspberry,amount:1;item-id:1,title:Classic,amount:2;'
+arr0 = all_orders.split(/\;/)
+	arr2 = []
+		arr0.each{|x| arr1 = x.split(/,/); arr2 << [(arr1[0].split(/:/))[1], (arr1[2].split(/:/))[1]]}
+			return arr2
 
-		id = s3[1]
-		cnt = s2[1]
-
-		arr2=[id, cnt]
-		arr.push arr2
-	end
-	return arr
 end

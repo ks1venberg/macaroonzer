@@ -15,17 +15,19 @@
 					  <table class="table table-striped">
 					    <thead>
 					      <tr>
+									<th scope="col">#</th>
 					        <th scope="col">Product</th>
 					        <th scope="col">Price</th>
-					        <th scope="col">Quantity</th>
+					        <th scope="col">Amount</th>
 					      </tr>
 					    </thead>
 
 					    <tbody>
 					    	<% total_price = 0 %>
 					    	<% total_quantity = 0 %>
-					    	<% @items.each do |item|%>
+					    	<% @items.each_with_index do |item,i|%>
 						      <tr>
+										<td><%= i+=1 %></td>
 						        <td><%= item[0].title %></td>
 						        <td><%= item[0].price.to_i %></td>
 						        <td><%= item[1] %></td>
@@ -35,9 +37,10 @@
 						    <% end %>
 
 						      <tr>
-						      <td></td>
+						      <td></td><td></td>
 						      <td>Total: <b><%= total_price.to_i %></b> rub</td>
 						      <td><%= total_quantity %></td>
+									<td></td>
 						      </tr>
 					    </tbody>
 
@@ -57,7 +60,7 @@
 				        </ul>
 				      <% end %>
 
-				    <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
+				    <input name="order[orders_input]" type="hidden" value="<%= params[:all_orders] %>" />
 
 				    <div class="form-group">
 				      <label><b>Name</b></label>
