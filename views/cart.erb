@@ -37,9 +37,10 @@
 						    <% end %>
 
 						      <tr>
-						      <td></td><td></td>
-						      <td>Total: <b><%= total_price.to_i %></b> rub</td>
-						      <td><%= total_quantity %></td>
+						      <td></td>
+						      <td>Total: </td>
+									<td><b><%= total_price.to_i %> rub</b></td>
+						      <td><b><%= total_quantity %></b></td>
 									<td></td>
 						      </tr>
 					    </tbody>
@@ -78,7 +79,7 @@
 				    </div>
 
 						<div class="form-group">
-				      <button type="submit" class="btn btn-success btn-lg"  style="padding-right: 5px" onclick="redirect to ('/confirm_order')">Confirm order</button>
+				      <button type="submit" class="btn btn-success btn-lg"  style="padding: 10px" onclick="redirect to ('/confirm_order')">Confirm order</button>
 				      <button class="btn btn-danger btn-lg" onclick="return cancel_order()">cancel order</button>
 						</div>
 
