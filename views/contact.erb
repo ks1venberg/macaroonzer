@@ -1,35 +1,41 @@
-<div class="container">
-  <br/>
-  <h1><i>Here you can send us e-mail</i></h1>
-    <p><i>suggestions, complaints, gratitudes - send us everything you want</i></p>
-  <hr/>
-  <br/>
+<!DOCTYPE html>
+<html>
+	<body>
 
-    <form action="/contact" method="POST" role="form">
+		<header>
+			<h1><i>Here you can send us e-mail</i></h1>
+		    <p><i>suggestions, complaints, gratitudes - send us everything you want</i></p>
+		  <hr/>
+  		<br>
+		</header>
 
-        <% if @message && @message.errors.any? %>
-        <p><b>Above fields aren't correct:</b></p> 
-          <ul>
-            <% @message.errors.full_messages.uniq.each do |msg| %>
-              <li  style='color:#FF0000'><%= msg %></li>
-            <% end %>
-          </ul>
-        <% end %>
+		<main>
 
-      <div class="form-group">
-        <!-- <label>Message text</label> -->
-        <textarea name="message[msgbody]" type="text" class="form-control" placeholder="message text" style="width: 500px" rows="4"></textarea>
-      </div>
+	    <form action="/contact" method="POST" role="form" style="max-width: 100%">
 
-      <div class="form-inline">
-        <!-- <div class="form-group" > -->
-          <!-- <label>Email: </label> -->
-          <input name="message[email]" type="text" class="form-control  mr-1" placeholder="your email" style="width: 400px">
-        <!-- </div> -->
-        <button type="submit" class="btn btn-primary btn-lg" style="width: 100px" onclick="alert_message()">Send</button>
-      </div>
+	        <% if @message && @message.errors.any? %>
+	        <p><b>Above fields aren't correct:</b></p>
+	          <ul>
+	            <% @message.errors.full_messages.uniq.each do |msg| %>
+	              <li  style='color:#FF0000'><%= msg %></li>
+	            <% end %>
+	          </ul>
+	        <% end %>
 
+		    <div class="form-group">
+		      <textarea name="message[msgbody]" type="text" class="form-control" placeholder="message text" style="width: 100%" rows="4"></textarea>
+		    </div>
 
+		    <div class="d-flex justify-content-end" class="form-inline">
+					<div class="col-5 mx-0 pr-1">
+	        	<input name="message[email]" type="text" class="form-control  mr-1" placeholder="type email for further reply" style="width: 100%" />
+	      	</div>
+		      <button type="submit" class="btn btn-primary" onclick="alert_message()">Send message</button>
+		    </div>
 
-    </form>
-</div>
+	  	</form>
+			
+		</main>
+
+	</body>
+</html>
