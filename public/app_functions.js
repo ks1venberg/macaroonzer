@@ -22,6 +22,27 @@ function add_to_cart(id, title)
   update_orders_button();
 }
 
+function increase_count_cart(id, title)
+{
+	add_to_cart(id, title);
+	$('#orders_button').click();
+}
+
+function remove_from_cart(id, title)
+{
+  var key = 'item-id:' + id + ',title:' + title;
+  var x = window.localStorage.getItem(key);
+		if(x > 1)
+			{x = x*1 - 1;
+			window.localStorage.setItem(key, x);
+			}
+			else {
+    		window.localStorage.removeItem(key,x);}
+  update_cart();
+  update_orders_button();
+	$('#orders_button').click();
+}
+
 function update_cart()
 {
   var orders_str = cart_get_orders();

@@ -19,6 +19,7 @@
 					        <th scope="col">Product</th>
 					        <th scope="col">Price</th>
 					        <th scope="col">Amount</th>
+									<th scope="col"></th>
 					      </tr>
 					    </thead>
 
@@ -31,6 +32,14 @@
 						        <td><%= item[0].title %></td>
 						        <td><%= item[0].price.to_i %></td>
 						        <td><%= item[1] %></td>
+										<td>
+											<div class="btn-toolbar" role="toolbar" aria-label="Toolbar">
+											  <div class="btn-group" role="group" aria-label="First group">
+											    <button type="button" class="btn btn-success" onclick="increase_count_cart(<%= item[0].id %>,'<%= item[0].title %>')">+</button>
+											    <button type="button" class="btn btn-secondary" onclick="remove_from_cart(<%= item[0].id %>,'<%= item[0].title %>')">-</button>
+											  </div>
+											</div>
+										</td>
 						      </tr>
 						      <% total_price += item[0].price*item[1].to_i %>
 						      <% total_quantity += item[1].to_i %>
